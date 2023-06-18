@@ -1,0 +1,59 @@
+body{
+    background-color: #007bff;
+}
+/* Navbar styles */
+.navbar {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #6eb0eb;
+}
+
+.nav-link {
+    color: #343a40;
+}
+
+/* Custom container styles */
+.custom-container {
+    background-color: #f8f9fa;
+}
+
+
+
+/* Flash messages styles */
+.alert {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.alert-heading {
+    color: #fff;
+}
+
+.flashes li {
+    color: #fff;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+

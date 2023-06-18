@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Network</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/sighting/home">Contract Network</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sighting/home">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sighting/new">Add Sighting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sighting/profile">Profile</a>
+                    </li>
+                </ul>
+                <form class="d-flex" method="POST" action="/logout">
+                    <button class="btn btn-danger" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container p-3 bg-success my-4 custom-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert alert-success text-danger" role="alert">
+                    <h4 class="alert-heading">Hey!</h4>
+                    <ul class="flashes">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+        <h1>
+            Create a bid here, {{ session.first_name }}!
+        </h1>
+        <form action="/sighting/new/create" method="POST">
+            <div class="form-group">
+                <label for="bid_status">Bid Status:</label>
+                <input type="text" class="form-control" name="bid_status" required>
+            </div>
+            <div class="form-group">
+                <label for="additional_notes">Additional Notes:</label>
+                <input type="text" class="form-control" name="additional_notes" required>
+            </div>
+            <div class="form-group">
+                <label for="submission_date">Date of Submission:</label>
+                <input type="date" class="form-control" name="submission_date" required>
+            </div>
+            <div class="form-group m-3">
+                Bid Amount: <br>
+                <input type="number" name="bid_amount" class="custom-select" required>
+            </div>
+            <button type="submit" class="btn btn-primary" value="submit">Create</button>
+        </form>
+    </div>
+
+    <!-- Back to Dashboard Button -->
+    <!-- <div class="container text-center mt-4">
+        <a href="/sighting/home" class="btn btn-secondary">Back to Dashboard</a>
+    </div> -->
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
