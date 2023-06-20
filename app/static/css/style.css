@@ -57,3 +57,9 @@ body{
     border-color: #bd2130;
 }
 
+
+.card-body {
+    color: #333; /* Set the font color */
+    border-radius: 0.5rem; /* Add rounded corners */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Add box shadow */
+}
